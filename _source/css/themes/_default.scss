@@ -1,0 +1,73 @@
+// Layout Colors
+$primaryLight: #1ab43e;
+$primary: #0f9e30;
+$primaryDark: #098e28;
+
+$secondaryLight: #252222;
+$secondary: #000;
+$secondaryDark: #000;
+
+$white: #fff;
+$white2: #f8f8f8;
+$white3: #f4f4f4;
+
+$mutedGray: #ededed;
+$lightGray: #e7e7e7;
+$mediumGray: #c5c5c5;
+$darkGray: #4c4c4c;
+$baseGray: #898989;
+$black: #000;
+
+$defaultRadius: 5px;
+
+$feedbackSuccess: #1ca33d;
+$feedbackLoad: #eee;
+$feedbackError: #f05555;
+
+$whatsappPrimary: #25d366;
+$whatsappSecondary: #1eb456;
+
+// Sizes
+$containerWidth: 1200px;
+$containerMaxWidth: 100%;
+$containerBigWidth: 1440px;
+$maxRowWidth: 2560px;
+
+// media folders
+$media_assets : "../../media/img/assets/";
+$media_icons : "../../media/img/icons/";
+$media_content : "../../media/img/content/";
+//example: background: url(#{$media_assets}image.png);
+
+// fonts
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeueBold.woff2') format('woff2'),
+	url('../../media/type/BebasNeueBold.woff') format('woff');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeueLight.woff2') format('woff2'),
+	url('../../media/type/BebasNeueLight.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../../media/type/BebasNeueRegular.woff2') format('woff2'),
+	url('../../media/type/BebasNeueRegular.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+$text: $black;
+$placeholderText: $darkGray;
+$fontFamily__default: 'Bebas Neue', 'Arial', 'Calibri', sans-serif;
+$fwLight: 300;
+$fwRegular: 400;
+$fwBold: 700;

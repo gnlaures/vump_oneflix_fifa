@@ -1,0 +1,239 @@
+// l-nav
+@media screen and (max-width: 990px) {
+    .l-nav__menu.--oneflix {
+        display: block;
+    }
+}
+@media screen and (max-width: 400px) {
+    .l-nav__heroMenu {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+// l-headerHome
+@media screen and (max-width: 1400px) {
+    .l-headerHome__main {
+        padding-left: 50px;
+    }
+}
+@media screen and (max-width: 1260px) {
+    .l-headerHome__c {
+        @include flexWidth(35%);
+    }
+    .l-headerHome__cover {
+        min-height: 540px;
+    }
+}
+@media screen and (max-width: 800px) {
+    .l-headerHome {
+        .u-containerMax {
+            flex-wrap: wrap;
+            padding-right: 0;
+            align-items: flex-start;
+        }
+        &__r {
+            @include flexWidth(100%);
+            padding-left: 92px;
+            padding-right: 30px;
+            padding-top: 50px;
+        }
+        &__main {
+            padding-left: 0;
+        }
+        &__c {
+            @include calc(min-width, 100%, '-', 92px);
+        }
+    }
+}
+@media screen and (max-width: 440px) {
+    .l-headerHome__cover {
+        min-height: 420px;
+    }
+    .l-headerHome__r {
+        padding-left: 0;
+    }
+}
+
+// oneflix
+@media screen and (max-width: 990px) {
+    .l-oneflixArea {
+        display: none;
+    }
+}
+
+//s-topFeaturedSection
+@media screen and (max-width: 950px) {
+    .s-topFeaturedSection {
+        .u-containerMax {
+            padding-right: 30px;
+        }
+        .c-video {
+            @include flexWidth(100%);
+        }
+        .c-gameBox {
+            display: none;
+        }
+    }
+}
+@media screen and (max-width: 640px) {
+    .s-topFeaturedSection {
+        padding: 50px;
+        padding-right: 0;
+    }
+}
+@media screen and (max-width: 530px) {
+    .s-topFeaturedSection {
+        padding: 50px 0;
+        .u-containerMax {
+            padding: 0;
+        }
+        .c-video__detailLeft {
+            display: none;
+        }
+    }
+}
+
+// main area
+@media screen and (max-width: 1200px) {
+    .l-mainArea {
+        display: block;
+        width: 100%;
+        padding-top: 40px;
+        &__aside {
+            display: none;
+        }
+        &__content {
+            display: block;
+            width: 100%;
+        }
+        &__article {
+            padding: 50px 30px;
+        }
+    }
+}
+
+// articles
+@media screen and (max-width: 1040px) {
+    .l-mainArea__article .article__r .article__header {
+        padding-left: 50px;
+    }
+    .l-mainArea__article .article__l .article__header {
+        padding-right: 50px;
+    }
+}
+@media screen and (max-width: 800px) {
+    // all articles
+    .l-mainArea__article {
+        padding: 50px !important;
+    }
+    
+    // #screenshots
+    .l-mainArea__article#screenshots .c-responsiveGrid {
+        @include calcWidthForPositionNegative(-4px);
+        li {
+            padding: 4px;
+        }
+    }
+    
+    // volta 
+    .l-mainArea__article#volta {
+        background: $primaryDark !important;
+    }
+    
+    // article twho cols
+    .l-mainArea__article.u-dflex {
+        flex-wrap: wrap;
+        .article__l,
+        .article__r {
+            @include flexWidth(100%);
+            .article__header {
+                padding-left: 0;
+                padding-right: 0;
+                * {
+                    max-width: 100%;
+                    text-align: left;
+                }
+            }
+        }
+        .article__r {
+            padding-top: 30px;
+        }
+    }
+    
+    // splideTwoCols
+    .l-mainArea {
+        .contentSplideTwoCols {
+            display: block;
+            margin-top: 20px;
+            &__l,
+            &__r {
+                @include flexWidth(100%);
+                display: block;
+                padding-left: 44px;
+                padding-right: 44px;
+            }
+            &__r {
+                padding-top: 30px;
+            }
+        }
+        .splide__arrow--next {
+            left: inherit;
+            right: 0;
+        }
+    }
+}
+@media screen and (max-width: 600px) {
+    .l-mainArea__article {
+        padding: 50px 30px !important;
+    }
+    .l-mainArea {
+        .contentSplideTwoCols {
+            &__l,
+            &__r {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+        .splide__arrow {
+            display: none;
+        }
+        .article__splideHero {
+            padding-bottom: 30px;
+            .splide__pagination {
+                display: block;
+                text-align: center;
+                bottom: -30px;
+            }
+        }
+    }
+}
+
+// .s-buy
+@media screen and (max-width: 780px) {
+    .s-buy {
+        padding: 90px 30px;
+    }
+    .s-buy .c-defaultCall .c-defaultListIcon {
+        flex-wrap: wrap;
+        li {
+            @include flexWidth(100%);
+            margin-right: 0;
+            justify-content: center;
+            margin-bottom: 15px;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// s-copyright
+@media screen and (max-width: 780px) {
+    .s-copyright {
+        p {
+            padding: 15px;
+            font-size: 14px;
+        }
+    }
+}

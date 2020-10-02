@@ -1,0 +1,54 @@
+@mixin paragrafos($tc: $text, $fw: $fwRegular, $fs: 18px, $lh: 1.3, $mb: 20px, $mbLOT: 0) {
+    color: $tc;
+    font-size: $fs;
+    font-weight: $fw;
+    margin-bottom: $mb;
+    line-height: $lh;
+    &:last-of-type {
+        margin-bottom: $mbLOT;
+    }
+    a {
+        color: $tc;
+        font-size: $fs;
+        font-weight: $fw;
+        line-height: $lh;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    strong {
+        font-weight: bold;
+        color: $tc;
+        font-size: $fs;
+        line-height: $lh;
+    }
+    @media screen and (max-width: 430px) {
+        font-size: $fs - 2;
+        a, strong {
+            font-size: $fs - 2;
+        }
+    }
+}
+
+@mixin allBaseTexts() {
+    @include letterSpacing(80);
+    text-transform: uppercase;
+}
+
+@mixin title_h1() {
+    @include allBaseTexts();
+    color: $black;
+    font-size: 70px;
+    line-height: 0.8;
+    font-weight: $fwBold;
+    font-style: italic;
+}
+@mixin title_h2() {
+    @include allBaseTexts();
+    color: $black;
+    font-size: 24px;
+    line-height: 0.9;
+    font-weight: $fwRegular;
+    font-style: italic;
+}

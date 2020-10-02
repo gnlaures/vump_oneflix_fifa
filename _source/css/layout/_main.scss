@@ -1,0 +1,654 @@
+// <>
+body {
+	background-image: url(#{$media_assets}bg.jpg);
+	background-position: center;
+	background-size: cover;
+}
+
+// .
+.splide__arrow {
+	@include roundedAll(0);
+	@include opacity(1);
+	width: 54px;
+	height: 54px;
+	background: $primary;
+	svg {
+		width: 22px;
+		height: 22px;
+		path {
+			fill: $white;
+		}
+	}
+	&:hover {
+		@include opacity(1);
+		background: $primaryDark;
+	}
+}
+.splide__arrow--prev {
+	left: 0;
+}
+.splide__arrow--next {
+	left: 50%;
+	margin-left: -10px;
+}
+.splide__pagination {
+	&__page {
+		@include roundedAll(0);
+		@include opacity(1);
+		background: $lightGray;
+		width: 10px;
+		height: 10px;
+		&.is-active {
+			@include transforms(scale(1), center);
+			background: $primary;
+		}
+	}
+}
+
+// m
+.m_whatsApp {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	max-width: 60px;
+	z-index: 12;
+	&__icon {
+		@include flexWidth(60px);
+		@include transition();
+		background: $whatsappPrimary;
+		background: radial-gradient(circle, $whatsappPrimary 0%, $whatsappSecondary 100%);
+		-webkit-box-shadow: 0px 0px 29px -3px rgba(0,0,0,0.2);
+		-moz-box-shadow: 0px 0px 29px -3px rgba(0,0,0,0.2);
+		box-shadow: 0px 0px 29px -3px rgba(0,0,0,0.2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		z-index: 2;
+		height: 60px;
+		cursor: pointer;
+		img, svg {
+			@include transition();
+			@include transforms(rotate(10deg));
+			width: 30px;
+			height: 28px;
+			display: block;
+			path {
+				fill: $white !important;
+			}
+		}
+		&:hover {
+			@include transforms(scale(1.1), center);
+		}
+	}
+	&__infos {
+		@include u-hideElement;
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		text-align: right;
+		div {
+			@include flexWidth(100%);
+			display: block;
+			width: 100%;
+			max-height: 24px;
+		}
+		span {
+			@include allBaseTexts;
+			position: relative;
+			right: -60px;
+			display: inline-block;
+			font-weight: 700;
+			padding: 0 40px 0 15px;
+			height: 24px;
+			line-height: 24px;
+			white-space: nowrap;
+			overflow: hidden;
+			&.wppCaption {
+				@include transition();
+				background: $mutedGray;
+				color: $whatsappSecondary;
+				font-size: 13px;
+			}
+			&.wppNumber {
+				@include transition($delay: 100ms);
+				background: $white;
+				color: $whatsappSecondary;
+				font-size: 14px;
+			}
+		}
+	}
+	&:hover {
+		max-width: 480px;
+		.m_whatsApp__infos {
+			@include transition($delay: 100ms);
+			@include u-showElement;
+			span {
+				right: -25px;
+			}
+		}
+		.m_whatsApp__icon {
+			img, svg {
+				@include transforms(rotate(0deg));
+			}
+		}
+	}
+}
+
+// l-
+.l-nav {
+	@include transition($ease: ease-in);
+	display: block;
+	width: 122px;
+	height: 122px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	
+	&__hamburguer {
+		@include transition();
+		position: relative;
+		z-index: 10;
+		height: 90px;
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+	}
+	&__heroMenu {
+		@include transition();
+		@include u-hideElement;
+		overflow: auto;
+		display: block;
+		width: 100%;
+		max-width: 400px;
+		height: 100%;
+		min-height: 100vh;
+		padding: 110px 60px;
+		background: $black;
+		position: fixed;
+		top: 0;
+		left: -400px;
+		z-index: 9;
+		&.is-active {
+			@include u-showElement;
+			left: 0;
+		}
+	}
+	&__menu {
+		li {
+			margin-bottom: 15px;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+		a {
+			@include allBaseTexts;
+			font-weight: $fwBold;
+			color: $white;
+			display: block;
+			text-align: right;
+			font-style: italic;
+			font-size: 24px;
+			&:hover {
+				color: $primary;
+			}
+		}
+		&.--oneflix {
+			border-bottom: 1px solid $darkGray;
+			margin-bottom: 30px;
+			padding-bottom: 30px;
+			display: none;
+			li {
+			
+			}
+			a {
+				color: $primary;
+			}
+		}
+	}
+	&__maskMenu {
+		&.maskAll,
+		&.maskMenu {
+			@include u-hideElement();
+			z-index: 2;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			min-height: 100vh;
+			display: block;
+			background: $primary;
+			&.is-active {
+				@include u-showElement();
+				@include opacity(0.5);
+			}
+		}
+		&.maskMenu {
+			z-index: 1;
+		}
+	}
+	
+	&.scrolled {
+		height: 90px;
+		.l-nav__hamburguer {
+			background: $black;
+			.c-hamburguer {
+				.bar {
+					background: $white;
+				}
+			}
+		}
+	}
+}
+.l-firstArea {
+
+}
+.l-headerHome {
+	&__l {
+		@include flexWidth(92px);
+		padding-right: 30px;
+		padding-top: 78px;
+		align-self: flex-start;
+	}
+	&__c {
+		@include flexWidth(40%);
+	}
+	&__r {
+		flex: 1 1 auto;
+	}
+	
+	&__brand {
+		display: block;
+		a, img {
+			display: block;
+			width: 100%;
+		}
+	}
+	&__cover {
+		padding-top: 90%;
+		min-height: 650px;
+	}
+	&__main {
+		padding-left: 90px;
+	}
+}
+.l-oneflixArea {
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 12;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	&__menu,
+	&__brand {
+		height: 60px;
+	}
+	&__menu {
+		padding: 0 15px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		background: $primary;
+		a {
+			@include allBaseTexts;
+			@include transition();
+			display: block;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 15px;
+			color: $white;
+			font-size: 18px;
+			&:hover {
+				background: $primaryLight;
+			}
+		}
+	}
+	&__brand {
+		background: $primaryDark;
+		padding: 0 30px;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.l-mainArea {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	position: relative;
+	&__aside {
+		@include flexWidth(380px);
+		display: block;
+		padding: 50px;
+		background: $black;
+		ul {
+			position: sticky;
+			top: 90px;
+			li {
+				display: block;
+				margin-bottom: 20px;
+				&:last-of-type {
+					margin-bottom: 0;
+				}
+			}
+			a {
+				@include allBaseTexts;
+				@include transition();
+				display: block;
+				text-align: right;
+				font-weight: $fwBold;
+				color: $white;
+				font-style: italic;
+				font-size: 30px;
+				&:hover {
+					color: $primary;
+				}
+			}
+		}
+	}
+	&__content {
+		flex: 1 1 auto;
+	}
+	&__article {
+		padding: 50px 90px;
+		.article__header {
+			display: block;
+			margin-bottom: 30px;
+			h1 {
+				@include title_h1;
+			}
+			p, h2 {
+				@include title_h2;
+				line-height: 1;
+				display: block;
+				width: 100%;
+				max-width: 600px;
+				margin-top: 15px;
+			}
+			&.--white {
+				h1, p, h2, * {
+					color: $white;
+				}
+			}
+		}
+		.article__l,
+		.article__r {
+			@include flexWidth(50%);
+			.article__header {
+				margin-bottom: 0;
+			}
+			img {
+				display: block;
+				width: 100%;
+			}
+		}
+		.article__l {
+			.article__header {
+				padding-right: 90px;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-end;
+				flex-wrap: wrap;
+				h1 {
+					@include flexWidth(100%);
+				}
+				* {
+					text-align: right;
+				}
+			}
+		}
+		.article__r {
+			.article__header {
+				padding-left: 90px;
+			}
+		}
+	}
+	
+	.article__splideHero {
+		width: 100%;
+		display: block;
+		overflow: hidden;
+		.splide__control {
+			display: block;
+			max-width: 100%;
+			position: relative;
+		}
+		.splide__pagination {
+			display: none;
+		}
+	}
+	.contentSplideTwoCols {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: nowrap;
+		h2 {
+			@include allBaseTexts;
+			display: block;
+			width: 100%;
+			color: $primary;
+			font-style: italic;
+			font-size: 32px;
+			font-weight: $fwBold;
+			margin-bottom: 10px;
+		}
+		p {
+			@include paragrafos();
+			max-width: 470px;
+		}
+		&__l,
+		&__r {
+			@include flexWidth(50%);
+		}
+		&__l {
+			padding-left: 44px;
+		}
+		&__r {
+			padding-left: 90px;
+		}
+	}
+}
+.l-mainArea__article#screenshots {
+	.c-responsiveGrid {
+		@include calcWidthForPositionNegative(-10px);
+		li {
+			padding: 10px;
+		}
+	}
+}
+.l-mainArea__article#jogabilidade {
+	padding-bottom: 90px;
+}
+.l-mainArea__article#modo-carreira {
+	padding: 90px;
+}
+.l-mainArea__article#volta {
+	padding-top: 0;
+	padding-bottom: 90px;
+}
+	
+// s-
+.s-topFeaturedSection {
+	padding-left: 92px;
+	padding-top: 92px;
+	padding-bottom: 92px;
+	.u-containerMax {
+		padding-right: 0;
+	}
+	.c-video {
+		@include flexWidth(65%);
+	}
+	.c-gameBox {
+		flex: 1 1 auto;
+		padding-left: 62px;
+		position: relative;
+		right: 0;
+		img {
+			@include transforms(translateY(-30%), center);
+			position: absolute;
+			display: block;
+			width: 100%;
+		}
+	}
+}
+.s-buy {
+	background: $black;
+	padding: 90px;
+	.c-defaultCall {
+		margin: 0 auto;
+		h1, h2, p, span {
+			color: $white;
+		}
+		h1, h2, p {
+			text-align: center;
+		}
+		.c-cta {
+			justify-content: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.c-defaultListIcon {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			li {
+				width: auto;
+				margin-right: 40px;
+				margin-bottom: 0;
+				&:last-of-type {
+					margin-right: 0;
+				}
+			}
+			span {
+				display: inline-block;
+				color: $primary;
+			}
+		}
+	}
+}
+.s-copyright {
+	img {
+		display: block;
+		width: 100%;
+	}
+	p {
+		@include paragrafos();
+		@include allBaseTexts;
+		text-align: center;
+		display: block;
+		padding: 10px 0;
+	}
+}
+
+// #page
+#page__components {
+	padding: 60px 50px;
+	.gridComponent {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.component {
+		@include roundedAll(10px);
+		flex: 1 1 auto;
+		max-width: 380px;
+		min-width: 280px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: nowrap;
+		margin: 10px;
+		background: teal;
+		.component__header {
+			padding: 15px;
+			> h2 {
+				color: $white;
+				font-size: 18px;
+			}
+		}
+		.component__content {
+			@include roundedAll(10px);
+			display: block;
+			padding: 15px;
+			background: $white;
+			border: 3px solid teal;
+			flex: 1 1 auto;
+		}
+		.content__hero {
+			margin-bottom: 15px;
+			padding-bottom: 15px;
+			border-bottom: 1px solid $mutedGray;
+			&:last-of-type {
+				margin-bottom: 0;
+				padding-bottom: 0;
+				border-bottom: 0;
+			}
+			> h3 {
+				color: $baseGray;
+				text-transform: uppercase;
+				font-weight: bold;
+				font-size: 13px;
+				margin-bottom: 4px;
+			}
+			.obs {
+				font-size: 14px;
+				color: $text;
+				display: block;
+				width: 100%;
+				margin-top: 5px;
+				padding-top: 5px;
+				border-top: 1px solid $mutedGray;
+				strong {
+					font-weight: bold;
+				}
+				u {
+					text-decoration: underline;
+				}
+				i {
+					font-style: italic;
+				}
+			}
+		}
+	}
+	> section {
+		margin-bottom: 40px;
+		padding-bottom: 40px;
+		border-bottom: 1px solid $mutedGray;
+		&:last-of-type {
+			margin-bottom: 0;
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+		> h1 {
+			color: $primary;
+			font-size: 24px;
+			text-align: center;
+			font-weight: bold;
+			margin-bottom: 20px;
+		}
+	}
+	
+	.subMenuTeste {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		padding: 20px;
+	}
+}

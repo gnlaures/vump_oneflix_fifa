@@ -1,0 +1,31 @@
+// .c-defaultCall
+@media screen and (max-width: 1260px) {
+	.c-defaultCall {
+		h1 {
+			font-size: 52px;
+		}
+		h2 {
+			font-size: 22px;
+		}
+	}
+}
+@media screen and (max-width: 800px) {
+	.c-defaultCall {
+		h1 {
+			font-size: 44px;
+		}
+	}
+}
+
+// c-cta
+@media screen and (max-width: 360px) {
+	.c-cta {
+		flex-wrap: wrap;
+		justify-content: center;
+		&__l, &__r {
+			@include flexWidth(100%);
+			justify-content: center;
+			text-align: center;
+		}
+	}
+}
