@@ -436,6 +436,10 @@ body {
 		flex-direction: row;
 		align-items: center;
 		flex-wrap: nowrap;
+		img {
+			display: block;
+			width: 100%;
+		}
 		h2 {
 			@include allBaseTexts;
 			display: block;
@@ -446,8 +450,19 @@ body {
 			font-weight: $fwBold;
 			margin-bottom: 10px;
 		}
+		h3 {
+			@include allBaseTexts;
+			display: block;
+			width: 100%;
+			color: $black;
+			font-style: italic;
+			font-size: 24px;
+			font-weight: $fwBold;
+			margin-bottom: 5px;
+			margin-top: 5px;
+		}
 		p {
-			@include paragrafos();
+			@include paragrafos($mb: 10px);
 			max-width: 470px;
 		}
 		&__l,

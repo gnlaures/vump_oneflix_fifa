@@ -180,6 +180,7 @@ if ($('#jogabilidade').length) {
         splideJogabilidade = new Splide( '.splide__jogabilidade', {
             width: widthSplideHero,
             fixedWidth: widthSplideHero,
+            autoHeight: true,
             pagination: true,
         } ).mount();
     }, 300);
