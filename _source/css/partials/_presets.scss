@@ -43,6 +43,9 @@
     line-height: 0.8;
     font-weight: $fwBold;
     font-style: italic;
+    @media screen and (max-width: 460px) {
+        font-size: 42px;
+    }
 }
 @mixin title_h2() {
     @include allBaseTexts();
